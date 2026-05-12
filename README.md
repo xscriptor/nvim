@@ -1,4 +1,4 @@
-# nvim
+<h1 align="center"> nvim </h1>
 
 Complete and modern Neovim configuration with essential plugins, LSP, DAP, formatting, linting, and custom themes based on references.md.
 
@@ -15,7 +15,7 @@ Complete and modern Neovim configuration with essential plugins, LSP, DAP, forma
 
 1. Clone this repository into your nvim config:
 ```bash
-git clone <your-repo> ~/.config/nvim
+git clone https://github.com/nvim ~/.config/nvim
 
 ```
 

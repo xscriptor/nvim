@@ -83,17 +83,10 @@ return {
         })
       end
 
-      if type(vim.lsp.config) == "function" and type(vim.lsp.enable) == "function" then
-        for server, config in pairs(servers) do
-          vim.lsp.config(server, with_defaults(config))
-        end
-        vim.lsp.enable(vim.tbl_keys(servers))
-      else
-        local lspconfig = require("lspconfig")
-        for server, config in pairs(servers) do
-          lspconfig[server].setup(with_defaults(config))
-        end
+      for server, config in pairs(servers) do
+        vim.lsp.config(server, with_defaults(config))
       end
+      vim.lsp.enable(vim.tbl_keys(servers))
     end,
   },
 }

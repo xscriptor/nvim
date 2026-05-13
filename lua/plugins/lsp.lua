@@ -17,7 +17,7 @@ return {
         "lua_ls",
         "pyright",
         "rust_analyzer",
-        "tsserver",
+        "ts_ls",
         "yamlls",
       },
     },
@@ -41,7 +41,6 @@ return {
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-      local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       local function on_attach(_, bufnr)
@@ -73,16 +72,21 @@ return {
         },
         pyright = {},
         rust_analyzer = {},
-        tsserver = {},
+        ts_ls = {},
         yamlls = {},
       }
 
-      for server, config in pairs(servers) do
-        lspconfig[server].setup(vim.tbl_extend("force", config, {
+      local function with_defaults(config)
+        return vim.tbl_extend("force", config, {
           capabilities = capabilities,
           on_attach = on_attach,
-        }))
+        })
       end
+
+      for server, config in pairs(servers) do
+        vim.lsp.config(server, with_defaults(config))
+      end
+      vim.lsp.enable(vim.tbl_keys(servers))
     end,
   },
 }

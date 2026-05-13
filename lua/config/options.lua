@@ -1,3 +1,9 @@
+if vim.tbl_flatten and vim.iter then
+  vim.tbl_flatten = function(t)
+    return vim.iter(t):flatten(math.huge):totable()
+  end
+end
+
 local opt = vim.opt
 
 opt.number = true

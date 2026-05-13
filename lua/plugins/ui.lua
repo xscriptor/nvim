@@ -71,7 +71,13 @@ return {
       local alpha = require("alpha")
       local dashboard = require("alpha.themes.dashboard")
       dashboard.section.header.val = {
-        "nvim",
+        "XX     XX",
+        " XX   XX ",
+        "  XX XX  ",
+        "   XXX   ",
+        "  XX XX  ",
+        " XX   XX ",
+        "XX     XX",
       }
       dashboard.section.buttons.val = {
         dashboard.button("e", "New file", ":ene <BAR> startinsert <CR>"),

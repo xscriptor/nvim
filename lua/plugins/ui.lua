@@ -25,6 +25,36 @@ return {
     },
   },
   {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    opts = {
+      cmdline = {
+        enabled = true,
+        view = "cmdline_popup",
+      },
+      views = {
+        cmdline_popup = {
+          position = {
+            row = "40%",
+            col = "50%",
+          },
+          size = {
+            width = 60,
+            height = "auto",
+          },
+          border = {
+            style = "rounded",
+            padding = { 0, 1 },
+          },
+        },
+      },
+    },
+  },
+  {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufReadPost",
     main = "ibl",

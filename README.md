@@ -5,6 +5,7 @@ Complete and modern Neovim configuration with essential plugins, LSP, DAP, forma
 <h2><em>Index</em></h2>
 
 <ul>
+  <li><a href="#previews">Prviews</a></li>
   <li><a href="#requirements">Requirements</a></li>
   <li><a href="#installation">Installation</a></li>
   <li><a href="#themes">Themes</a></li>
@@ -14,6 +15,12 @@ Complete and modern Neovim configuration with essential plugins, LSP, DAP, forma
   <li><a href="#x">X</a></li>
 </ul>
 
+
+<h2 id="previews" align="center">Previews</h2>
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/xscriptor/xassets/main/xrepos/nvim/preview00.png" alt="Preview 1" width="850"/>
+</p>
 
 <h2 id="requirements" align="center">Requirements</h2>
 
@@ -33,7 +40,7 @@ Complete and modern Neovim configuration with essential plugins, LSP, DAP, forma
 </ol>
 
 ```bash
-git clone [https://github.com/nvim](https://github.com/nvim) ~/.config/nvim
+git clone https://github.com/xscriptor/nvim ~/.config/nvim
 ```
 
 <ol start="2">
@@ -121,6 +128,13 @@ vim.g.langmap_en = ""
   <li><a href="./SECURITY.md">Security</a></li>
   <li><a href="./SUPPORT.md">Support</a></li>
   <li><a href="./CODE_OF_CONDUCT.md">Code of conduct</a></li>
+</ul>
+
+<h2 align="center">Related repos</h2>
+
+<ul>
+  <li><a href="https://github.com/xscriptor/terminal">Terminal</a></li>
+  <li><a href="https://github.com/xscriptor/xfetch">XFetch</a></li>
 </ul>
 
 

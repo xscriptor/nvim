@@ -1,6 +1,7 @@
 indent_type = "Spaces"
 indent_width = 2
 line_endings = "Unix"
-quote_style = "AutoDoubleQuotes"
+quote_style = "AutoPreferDouble"
 call_parentheses = "Always"
-sort_requires = true
+[sort_requires]
+enabled = true

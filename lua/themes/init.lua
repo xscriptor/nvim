@@ -251,7 +251,7 @@ end
 
 M.names = vim.tbl_keys(palettes)
 
-  vim.api.nvim_create_user_command("Theme", function(opts)
+vim.api.nvim_create_user_command("Theme", function(opts)
   M.apply(opts.args)
   pcall(function()
     local lualine_ok, lualine = pcall(require, "lualine")
@@ -259,8 +259,11 @@ M.names = vim.tbl_keys(palettes)
       lualine.setup({ options = { theme = require("themes.lualine").theme(opts.args) } })
     end
   end)
-end, { nargs = 1, complete = function()
-  return M.names
-end })
+end, {
+  nargs = 1,
+  complete = function()
+    return M.names
+  end,
+})
 
 return M

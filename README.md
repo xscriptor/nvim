@@ -1,5 +1,6 @@
 <h1 align="center"> NVIM </h1>
 
+<p align="center"><a href="https://dev.xscriptor.com/en/?mode=so"><img src="https://raw.githubusercontent.com/xscriptor/xassets/main/xrepos/nvim/logo.svg" height="50" alt="X"/></a></p>
 <div align="center">
 
 ![Neovim](https://img.shields.io/badge/Neovim-0.10+-57A143?style=flat&logo=neovim&logoColor=white)
@@ -8,8 +9,8 @@
 ![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat)
 
 </div>
-
-Complete and modern Neovim configuration with essential plugins, LSP, DAP, formatting, linting, and custom themes with the  <em><a href="https://github.com/xscriptor/">X</a> scheme </em>
+<p align="right">
+Complete Neovim configuration with essential plugins, LSP, DAP, formatting, linting, and custom themes with the  <em><a href="https://github.com/xscriptor/">X</a> scheme </em></p>
 
 <h2><em>Index</em></h2>
 

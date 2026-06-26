@@ -98,6 +98,11 @@ return {
         dashboard.button("e", "New file", ":ene <BAR> startinsert <CR>"),
         dashboard.button("f", "Find file", ":Telescope find_files<CR>"),
         dashboard.button("r", "Recent", ":Telescope oldfiles<CR>"),
+        dashboard.button("o", "Explorer", ":Oil<CR>"),
+        dashboard.button("t", "Terminal", ":ToggleTerm<CR>"),
+        dashboard.button("s", "Session", ":lua require('persistence').load()<CR>"),
+        dashboard.button("l", "Lazy", ":Lazy<CR>"),
+        dashboard.button("c", "Theme", ":Theme "),
         dashboard.button("q", "Quit", ":qa<CR>"),
       }
       alpha.setup(dashboard.config)

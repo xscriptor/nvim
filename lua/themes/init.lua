@@ -37,12 +37,12 @@ function M.apply(name)
   vim.cmd("syntax reset")
 
   vim.o.termguicolors = true
-  vim.o.background = is_light(p.color0) and "light" or "dark"
+  vim.o.background = is_light(p.background) and "light" or "dark"
   vim.g.colors_name = name
 
   local c = {
-    bg = strip_alpha(p.color0),
-    fg = strip_alpha(p.color7),
+    bg = strip_alpha(p.background),
+    fg = strip_alpha(p.foreground),
     bg_alt = strip_alpha(p.color8),
     fg_alt = strip_alpha(p.color15),
     comment = strip_alpha(p.color8),

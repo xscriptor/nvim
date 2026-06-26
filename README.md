@@ -1,6 +1,16 @@
 <h1 align="center"> NVIM </h1>
 
-Complete and modern Neovim configuration with essential plugins, LSP, DAP, formatting, linting, and custom themes with the same scheme than <em><a href="https://github.com/xscriptor/terminal"> terminal X repo</a>. </em>
+<p align="center"><a href="https://dev.xscriptor.com/en/?mode=so"><img src="https://raw.githubusercontent.com/xscriptor/xassets/main/xrepos/nvim/logo.svg" height="50" alt="X"/></a></p>
+<div align="center">
+
+![Neovim](https://img.shields.io/badge/Neovim-0.10+-57A143?style=flat&logo=neovim&logoColor=white)
+![Lua](https://img.shields.io/badge/Lua-5.1-2C2D72?style=flat&logo=lua&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-blue?style=flat)
+![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat)
+
+</div>
+<p align="right">
+Complete Neovim configuration with essential plugins, LSP, DAP, formatting, linting, and custom themes with the  <em><a href="https://github.com/xscriptor/">X</a> scheme </em></p>
 
 <h2><em>Index</em></h2>
 
@@ -18,7 +28,7 @@ Complete and modern Neovim configuration with essential plugins, LSP, DAP, forma
 <h2 id="requirements" align="center">Requirements</h2>
 
 <ul>
-  <li>Latest stable Neovim</li>
+  <li>Neovim >= 0.10 (nightly for <code>vim.lsp.config</code> API)</li>
   <li>git</li>
   <li>ripgrep</li>
   <li>fd</li>
@@ -33,20 +43,15 @@ Complete and modern Neovim configuration with essential plugins, LSP, DAP, forma
 </ol>
 
 ```bash
-git clone [https://github.com/nvim](https://github.com/nvim) ~/.config/nvim
+git clone https://github.com/xscriptor/nvim ~/.config/nvim
 ```
 
 <ol start="2">
-  <li>Open Neovim and run:</li>
+  <li>Open Neovim. Lazy.nvim will automatically install all plugins on first start.</li>
 </ol>
 
-```vim
-   :Lazy sync
-   :Mason
-```
-
 <ol start="3">
-  <li>To generate a reproducible lockfile, run <code>:Lazy sync</code> and confirm that <code>lazy-lock.json</code> is created before pushing changes.</li>
+  <li>(Optional) Run <code>:Mason</code> to check LSP server installation status.</li>
 </ol>
 
 <h2 id="themes" align="center">Themes</h2>
@@ -57,7 +62,6 @@ git clone [https://github.com/nvim](https://github.com/nvim) ~/.config/nvim
   <li>x</li>
   <li>madrid</li>
   <li>lahabana</li>
-  <li>seul</li>
   <li>miami</li>
   <li>paris</li>
   <li>tokio</li>
@@ -65,6 +69,7 @@ git clone [https://github.com/nvim](https://github.com/nvim) ~/.config/nvim
   <li>helsinki</li>
   <li>berlin</li>
   <li>london</li>
+  <li>seul</li>
   <li>praha</li>
   <li>bogota</li>
 </ul>
@@ -107,6 +112,26 @@ vim.g.langmap_en = ""
   <li><strong>Git:</strong> gitsigns, diffview</li>
 </ul>
 
+<h2 align="center" id="colors">Colors</h2>
+
+
+<div align="center">
+  <a href="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_x.svg"><img src="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_x.svg" height="100" alt="X"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_madrid.svg"><img src="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_madrid.svg" height="100" alt="Madrid"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_lahabana.svg"><img src="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_lahabana.svg" height="100" alt="Lahabana"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_miami.svg"><img src="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_miami.svg" height="100" alt="Miami"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_paris.svg"><img src="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_paris.svg" height="100" alt="Paris"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_tokio.svg"><img src="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_tokio.svg" height="100" alt="Tokio"/></a>
+</div>
+<div align="center">
+  <a href="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_oslo.svg"><img src="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_oslo.svg" height="100" alt="Oslo"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_helsinki.svg"><img src="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_helsinki.svg" height="100" alt="Helsinki"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_berlin.svg"><img src="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_berlin.svg" height="100" alt="Berlin"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_london.svg"><img src="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_london.svg" height="100" alt="London"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_praha.svg"><img src="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_praha.svg" height="100" alt="Praha"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_bogota.svg"><img src="https://raw.githubusercontent.com/xscriptor/xassets/main/colors/palette_bogota.svg" height="100" alt="Bogota"/></a>
+</div>
+
 <h2 id="notes" align="center">Notes</h2>
 
 <p>If a formatter or linter binary is not installed, <code>conform</code> and <code>nvim-lint</code> will skip it without failing. Use Mason or your preferred package manager to install them.</p>
@@ -123,6 +148,15 @@ vim.g.langmap_en = ""
   <li><a href="./CODE_OF_CONDUCT.md">Code of conduct</a></li>
 </ul>
 
+<h2 align="center" id="related-repos">Related Repos</h2>
+<ul>
+  <li><a href="https://github.com/xscriptor/terminal">Terminal </a> <img src="https://xscriptor.github.io/icons/icons/code/product-design/xsvg/terminal-bash.svg" /></li>
+  <li><a href="https://github.com/xscriptor/vscode">VSCode </a><img src="https://xscriptor.github.io/icons/icons/code/product-design/xsvg/vscode-insiders.svg"/></li>
+  <li><a href="https://github.com/xscriptor/jetbrains">Jetbrains </a><img src="https://xscriptor.github.io/icons/icons/code/product-design/xsvg/project.svg"/></li>
+  <li><a href="https://github.com/xscriptor/gitnapse">Gitnapse </a><img src="https://xscriptor.github.io/icons/icons/code/product-design/xsvg/github-alt.svg"/></li>
+  <li><a href="https://github.com/xscriptor/obsidian">Obsidian </a><img src="https://xscriptor.github.io/icons/icons/code/product-design/xsvg/markdown.svg"/></li>
+  <li><a href="https://github.com/xscriptor/xfetch">XFetch </a><img src="https://xscriptor.github.io/icons/icons/code/product-design/xsvg/git-fetch.svg"/></li>
+</ul>
 
 <br>
 

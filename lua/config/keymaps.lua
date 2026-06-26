@@ -15,3 +15,6 @@ map("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
 map("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 map("n", "<leader>do", vim.diagnostic.open_float, { desc = "Diagnostic float" })
 map("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Diagnostic list" })
+
+map("n", "<leader>t", "<cmd>ToggleTerm<cr>", { desc = "Toggle terminal" })
+map("t", "<leader>t", "<cmd>ToggleTerm<cr>", { desc = "Toggle terminal" })

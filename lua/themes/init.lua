@@ -197,6 +197,40 @@ function M.apply(name)
   set_hl("GitSignsChange", { fg = c.yellow })
   set_hl("GitSignsDelete", { fg = c.red })
 
+  set_hl("BufferLineFill", { bg = c.bg_alt })
+  set_hl("BufferLineBackground", { fg = c.comment, bg = c.bg_alt })
+  set_hl("BufferLineBufferVisible", { fg = c.fg, bg = c.bg_alt })
+  set_hl("BufferLineBufferSelected", { fg = c.fg, bg = c.bg })
+
+  set_hl("NoiceCmdlinePopup", { fg = c.fg, bg = c.bg_alt })
+  set_hl("NoiceCmdlinePopupBorder", { fg = c.cyan, bg = c.bg_alt })
+  set_hl("NoicePopup", { fg = c.fg, bg = c.bg_alt })
+
+  set_hl("NotifyERROR", { fg = c.red })
+  set_hl("NotifyWARN", { fg = c.yellow })
+  set_hl("NotifyINFO", { fg = c.cyan })
+  set_hl("NotifyDEBUG", { fg = c.comment })
+  set_hl("NotifyTRACE", { fg = c.purple })
+
+  set_hl("TroubleNormal", { fg = c.fg, bg = c.bg })
+  set_hl("TroubleText", { fg = c.fg })
+
+  set_hl("TodoFgTODO", { fg = c.bright_yellow })
+  set_hl("TodoFgFIX", { fg = c.red })
+  set_hl("TodoFgHACK", { fg = c.purple })
+  set_hl("TodoSignTODO", { fg = c.bright_yellow })
+  set_hl("TodoSignFIX", { fg = c.red })
+
+  set_hl("WhichKey", { fg = c.cyan })
+  set_hl("WhichKeyGroup", { fg = c.yellow })
+  set_hl("WhichKeyDesc", { fg = c.fg })
+  set_hl("WhichKeySeparator", { fg = c.comment })
+
+  set_hl("CmpItemAbbr", { fg = c.fg })
+  set_hl("CmpItemAbbrMatch", { fg = c.bright_cyan, bold = true })
+  set_hl("CmpItemKind", { fg = c.purple })
+  set_hl("CmpItemMenu", { fg = c.comment })
+
   vim.g.terminal_color_0 = c.bg
   vim.g.terminal_color_1 = c.red
   vim.g.terminal_color_2 = c.green
@@ -217,8 +251,14 @@ end
 
 M.names = vim.tbl_keys(palettes)
 
-vim.api.nvim_create_user_command("Theme", function(opts)
+  vim.api.nvim_create_user_command("Theme", function(opts)
   M.apply(opts.args)
+  pcall(function()
+    local lualine_ok, lualine = pcall(require, "lualine")
+    if lualine_ok then
+      lualine.setup({ options = { theme = require("themes.lualine").theme(opts.args) } })
+    end
+  end)
 end, { nargs = 1, complete = function()
   return M.names
 end })

@@ -20,7 +20,10 @@ Complete Neovim configuration with essential plugins, LSP, DAP, formatting, lint
   <li><a href="#themes">Themes</a></li>
   <li><a href="#keybindings">Keybindings</a></li>
   <li><a href="#included-plugins">Included Plugins</a></li>
+  <li><a href="#colors">Colors</a></li>
   <li><a href="#notes">Notes</a></li>
+  <li><a href="#related-documents">Related Documents</a></li>
+  <li><a href="#related-repos">Related Repos</a></li>
   <li><a href="#x">X</a></li>
 </ul>
 
@@ -137,7 +140,7 @@ vim.g.langmap_en = ""
 <p>If a formatter or linter binary is not installed, <code>conform</code> and <code>nvim-lint</code> will skip it without failing. Use Mason or your preferred package manager to install them.</p>
 
 
-<h2 align="center">Related documents</h2>
+<h2 align="center" id="related-documents">Related documents</h2>
 
 <ul>
   <li><a href="./docs/cheatsheet.md">Cheatsheet</a></li>

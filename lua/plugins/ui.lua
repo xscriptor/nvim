@@ -3,14 +3,16 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-      options = {
-        theme = "auto",
-        section_separators = "",
-        component_separators = "|",
-        globalstatus = true,
-      },
-    },
+    opts = function()
+      return {
+        options = {
+          theme = require("themes.lualine").theme(),
+          section_separators = "",
+          component_separators = "|",
+          globalstatus = true,
+        },
+      }
+    end,
   },
   {
     "akinsho/bufferline.nvim",
@@ -71,13 +73,12 @@ return {
       local alpha = require("alpha")
       local dashboard = require("alpha.themes.dashboard")
       dashboard.section.header.val = {
-        "XX     XX",
-        " XX   XX ",
-        "  XX XX  ",
-        "   XXX   ",
-        "  XX XX  ",
-        " XX   XX ",
-        "XX     XX",
+        "██╗  ██╗    ██╗   ██╗",
+        "╚██╗██╔╝    ██║   ██║",
+        " ╚███╔╝     ██║   ██║",
+        " ██╔██╗     ╚██╗ ██╔╝",
+        "██╔╝ ██╗     ╚████╔╝ ",
+        "╚═╝  ╚═╝      ╚═══╝  ",
       }
       dashboard.section.buttons.val = {
         dashboard.button("e", "New file", ":ene <BAR> startinsert <CR>"),

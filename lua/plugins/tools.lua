@@ -35,7 +35,7 @@ return {
     "stevearc/conform.nvim",
     event = "BufWritePre",
     opts = {
-      format_on_save = { timeout_ms = 1000, lsp_fallback = true },
+      format_on_save = { timeout_ms = 2000, lsp_fallback = true },
       formatters_by_ft = {
         lua = { "stylua" },
         javascript = { "prettier" },
@@ -60,7 +60,7 @@ return {
         python = { "ruff" },
       }
 
-      vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
+      vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
         callback = function()
           lint.try_lint()
         end,
@@ -105,5 +105,21 @@ return {
         dapui.close()
       end
     end,
+  },
+  {
+    "mfussenegger/nvim-dap-python",
+    event = "VeryLazy",
+    dependencies = { "mfussenegger/nvim-dap" },
+    config = function()
+      require("dap-python").setup("python")
+    end,
+  },
+  {
+    "mxsdev/nvim-dap-vscode-js",
+    event = "VeryLazy",
+    dependencies = { "mfussenegger/nvim-dap" },
+    opts = {
+      adapters = { "pwa-node", "pwa-chrome" },
+    },
   },
 }

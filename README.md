@@ -3,7 +3,7 @@
 <p align="center"><a href="https://dev.xscriptor.com/en/?mode=so"><img src="https://raw.githubusercontent.com/xscriptor/xassets/main/xrepos/nvim/logo.svg" height="50" alt="X"/></a></p>
 <div align="center">
 
-![Neovim](https://img.shields.io/badge/Neovim-0.10+-57A143?style=flat&logo=neovim&logoColor=white)
+![Neovim](https://img.shields.io/badge/Neovim-0.11+-57A143?style=flat&logo=neovim&logoColor=white)
 ![Lua](https://img.shields.io/badge/Lua-5.1-2C2D72?style=flat&logo=lua&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=flat)
 ![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat)
@@ -20,7 +20,10 @@ Complete Neovim configuration with essential plugins, LSP, DAP, formatting, lint
   <li><a href="#themes">Themes</a></li>
   <li><a href="#keybindings">Keybindings</a></li>
   <li><a href="#included-plugins">Included Plugins</a></li>
+  <li><a href="#colors">Colors</a></li>
   <li><a href="#notes">Notes</a></li>
+  <li><a href="#related-documents">Related Documents</a></li>
+  <li><a href="#related-repos">Related Repos</a></li>
   <li><a href="#x">X</a></li>
 </ul>
 
@@ -28,7 +31,7 @@ Complete Neovim configuration with essential plugins, LSP, DAP, formatting, lint
 <h2 id="requirements" align="center">Requirements</h2>
 
 <ul>
-  <li>Neovim >= 0.10 (nightly for <code>vim.lsp.config</code> API)</li>
+  <li>Neovim >= 0.11</li>
   <li>git</li>
   <li>ripgrep</li>
   <li>fd</li>
@@ -137,7 +140,7 @@ vim.g.langmap_en = ""
 <p>If a formatter or linter binary is not installed, <code>conform</code> and <code>nvim-lint</code> will skip it without failing. Use Mason or your preferred package manager to install them.</p>
 
 
-<h2 align="center">Related documents</h2>
+<h2 align="center" id="related-documents">Related documents</h2>
 
 <ul>
   <li><a href="./docs/cheatsheet.md">Cheatsheet</a></li>

@@ -3,14 +3,25 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-      options = {
-        theme = "auto",
-        section_separators = "",
-        component_separators = "|",
-        globalstatus = true,
-      },
-    },
+    opts = function()
+      return {
+        options = {
+          theme = require("themes.lualine").theme(),
+          section_separators = "",
+          component_separators = "|",
+          globalstatus = true,
+        },
+        sections = {
+          lualine_c = {
+            {
+              "diagnostics",
+              sources = { "nvim_lsp" },
+              symbols = { error = "E:", warn = "W:", info = "I:", hint = "H:" },
+            },
+          },
+        },
+      }
+    end,
   },
   {
     "akinsho/bufferline.nvim",
@@ -71,22 +82,36 @@ return {
       local alpha = require("alpha")
       local dashboard = require("alpha.themes.dashboard")
       dashboard.section.header.val = {
-        "XX     XX",
-        " XX   XX ",
-        "  XX XX  ",
-        "   XXX   ",
-        "  XX XX  ",
-        " XX   XX ",
-        "XX     XX",
+        "~ ██╗  ██╗ ~",
+        "~ ╚██╗██╔╝ ~",
+        "~  ╚███╔╝  ~",
+        "~  ██╔██╗  ~",
+        "~ ██╔╝ ██╗ ~",
+        "~ ╚═╝  ╚═╝ ~",
+        "",
+        "The eternal",
+        "withers ",
+        "and the ephemeral",
+        "marks our memories.",
       }
       dashboard.section.buttons.val = {
         dashboard.button("e", "New file", ":ene <BAR> startinsert <CR>"),
         dashboard.button("f", "Find file", ":Telescope find_files<CR>"),
         dashboard.button("r", "Recent", ":Telescope oldfiles<CR>"),
+        dashboard.button("o", "Explorer", ":Oil<CR>"),
+        dashboard.button("t", "Terminal", ":ToggleTerm<CR>"),
+        dashboard.button("s", "Session", ":lua require('persistence').load()<CR>"),
+        dashboard.button("l", "Lazy", ":Lazy<CR>"),
+        dashboard.button("c", "Theme", ":Theme "),
         dashboard.button("q", "Quit", ":qa<CR>"),
       }
       alpha.setup(dashboard.config)
     end,
+  },
+  {
+    "stevearc/dressing.nvim",
+    event = "VeryLazy",
+    opts = {},
   },
   {
     "norcalli/nvim-colorizer.lua",

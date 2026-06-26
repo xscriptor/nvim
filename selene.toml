@@ -1,0 +1,9 @@
+[base]
+config = "selene"
+std = "luajit"
+
+[style]
+allow_unused_variable_prefixes = "_"
+
+[lint]
+unused_arguments = "warn"

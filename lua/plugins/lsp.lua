@@ -12,12 +12,18 @@ return {
       ensure_installed = {
         "bashls",
         "cssls",
+        "dockerls",
+        "emmet_ls",
+        "gopls",
         "html",
         "jsonls",
         "lua_ls",
         "pyright",
         "rust_analyzer",
+        "sqlls",
+        "taplo",
         "ts_ls",
+        "vimls",
         "yamlls",
       },
     },
@@ -43,6 +49,8 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+      vim.lsp.completion.enable(true, nil, { cmp = true })
+
       local function on_attach(_, bufnr)
         local map = function(mode, lhs, rhs, desc)
           vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
@@ -60,6 +68,9 @@ return {
       local servers = {
         bashls = {},
         cssls = {},
+        dockerls = {},
+        emmet_ls = {},
+        gopls = {},
         html = {},
         jsonls = {},
         lua_ls = {
@@ -72,7 +83,10 @@ return {
         },
         pyright = {},
         rust_analyzer = {},
+        sqlls = {},
+        taplo = {},
         ts_ls = {},
+        vimls = {},
         yamlls = {},
       }
 

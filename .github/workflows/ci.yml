@@ -14,6 +14,19 @@ jobs:
       - uses: rhysd/action-setup-vim@v1
         with:
           neovim: true
-          version: nightly
+          version: v0.12
       - name: Validate config loads without errors
         run: nvim --headless -c "lua vim.cmd('q!')" -c "qa!"
+      - name: Check Lua syntax
+        run: |
+          for f in $(find lua colors -name '*.lua' -not -path '*/lazy-lock.json'); do
+            nvim --headless -c "lua local ok, err = loadfile('$f'); if not ok then io.stderr:write(err..'\n'); vim.cmd('cquit!') else vim.cmd('q!') end" 2>/dev/null || exit 1
+          done
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: JohnnyMorganz/stylua-action@v4
+        with:
+          version: latest
+          args: --check lua/

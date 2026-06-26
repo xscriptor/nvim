@@ -11,6 +11,15 @@ return {
           component_separators = "|",
           globalstatus = true,
         },
+        sections = {
+          lualine_c = {
+            {
+              "diagnostics",
+              sources = { "nvim_lsp" },
+              symbols = { error = "E:", warn = "W:", info = "I:", hint = "H:" },
+            },
+          },
+        },
       }
     end,
   },
@@ -73,12 +82,17 @@ return {
       local alpha = require("alpha")
       local dashboard = require("alpha.themes.dashboard")
       dashboard.section.header.val = {
-        "██╗  ██╗    ██╗   ██╗",
-        "╚██╗██╔╝    ██║   ██║",
-        " ╚███╔╝     ██║   ██║",
-        " ██╔██╗     ╚██╗ ██╔╝",
-        "██╔╝ ██╗     ╚████╔╝ ",
-        "╚═╝  ╚═╝      ╚═══╝  ",
+        "~ ██╗  ██╗ ~",
+        "~ ╚██╗██╔╝ ~",
+        "~  ╚███╔╝  ~",
+        "~  ██╔██╗  ~",
+        "~ ██╔╝ ██╗ ~",
+        "~ ╚═╝  ╚═╝ ~",
+        "",
+        "The eternal",
+        "withers ",
+        "and the ephemeral",
+        "marks our memories.",
       }
       dashboard.section.buttons.val = {
         dashboard.button("e", "New file", ":ene <BAR> startinsert <CR>"),
@@ -88,6 +102,11 @@ return {
       }
       alpha.setup(dashboard.config)
     end,
+  },
+  {
+    "stevearc/dressing.nvim",
+    event = "VeryLazy",
+    opts = {},
   },
   {
     "norcalli/nvim-colorizer.lua",

@@ -60,7 +60,7 @@ return {
     foreground = "#f7f1ff",
   },
   seul = {
-    color0 = "#1b1b1bff",
+    color0 = "#1b1b1b",
     color1 = "#FF4C8B",
     color2 = "#7FFFD4",
     color3 = "#FFD84C",

@@ -46,6 +46,10 @@ return {
         python = { "black" },
         rust = { "rustfmt" },
         go = { "gofmt" },
+        sh = { "shfmt" },
+        bash = { "shfmt" },
+        toml = { "taplo" },
+        sql = { "sqlfluff" },
       },
     },
   },
@@ -58,6 +62,10 @@ return {
         javascript = { "eslint_d" },
         typescript = { "eslint_d" },
         python = { "ruff" },
+        sh = { "shellcheck" },
+        bash = { "shellcheck" },
+        zsh = { "shellcheck" },
+        markdown = { "markdownlint" },
       }
 
       vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
@@ -84,6 +92,15 @@ return {
   {
     "mfussenegger/nvim-dap",
     event = "VeryLazy",
+    config = function()
+      local dap = require("dap")
+      vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "DAP toggle breakpoint" })
+      vim.keymap.set("n", "<leader>dC", dap.continue, { desc = "DAP continue" })
+      vim.keymap.set("n", "<leader>dx", dap.terminate, { desc = "DAP terminate" })
+      vim.keymap.set("n", "<leader>dr", dap.step_over, { desc = "DAP step over" })
+      vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "DAP step into" })
+      vim.keymap.set("n", "<leader>dO", dap.step_out, { desc = "DAP step out" })
+    end,
   },
   {
     "rcarriga/nvim-dap-ui",
@@ -121,5 +138,36 @@ return {
     opts = {
       adapters = { "pwa-node", "pwa-chrome" },
     },
+  },
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      local harpoon = require("harpoon")
+      harpoon:setup()
+      vim.keymap.set("n", "<leader>ha", function() harpoon:list():add() end, { desc = "Harpoon add file" })
+      vim.keymap.set("n", "<leader>hh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon menu" })
+      vim.keymap.set("n", "<leader>h1", function() harpoon:list():select(1) end, { desc = "Harpoon file 1" })
+      vim.keymap.set("n", "<leader>h2", function() harpoon:list():select(2) end, { desc = "Harpoon file 2" })
+      vim.keymap.set("n", "<leader>h3", function() harpoon:list():select(3) end, { desc = "Harpoon file 3" })
+      vim.keymap.set("n", "<leader>h4", function() harpoon:list():select(4) end, { desc = "Harpoon file 4" })
+    end,
+  },
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre",
+    opts = {},
+    config = function(_, opts)
+      require("persistence").setup(opts)
+      vim.keymap.set("n", "<leader>qs", function() require("persistence").save() end, { desc = "Save session" })
+      vim.keymap.set("n", "<leader>ql", function() require("persistence").load() end, { desc = "Load last session" })
+      vim.keymap.set("n", "<leader>qd", function() require("persistence").stop() end, { desc = "Stop session" })
+    end,
+  },
+  {
+    "OXY2DEV/markview.nvim",
+    ft = "markdown",
+    opts = {},
   },
 }

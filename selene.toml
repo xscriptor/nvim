@@ -1,6 +1,6 @@
 [base]
 config = "selene"
-std = "lua52"
+std = "luajit"
 
 [style]
 allow_unused_variable_prefixes = "_"

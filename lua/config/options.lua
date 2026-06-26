@@ -27,13 +27,14 @@ opt.backup = false
 opt.confirm = true
 opt.laststatus = 3
 opt.showmode = false
+opt.cmdheight = 0
 opt.list = true
 opt.listchars = { tab = "->", trail = ".", extends = ">", precedes = "<", nbsp = "+" }
 opt.fillchars = { eob = " " }
 
 vim.diagnostic.config({
   underline = true,
-  update_in_insert = false,
+  update_in_insert = true,
   severity_sort = true,
   float = { border = "rounded" },
   signs = true,

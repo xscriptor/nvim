@@ -3,7 +3,7 @@
 <p align="center"><a href="https://dev.xscriptor.com/en/?mode=so"><img src="https://raw.githubusercontent.com/xscriptor/xassets/main/xrepos/nvim/logo.svg" height="50" alt="X"/></a></p>
 <div align="center">
 
-![Neovim](https://img.shields.io/badge/Neovim-0.10+-57A143?style=flat&logo=neovim&logoColor=white)
+![Neovim](https://img.shields.io/badge/Neovim-0.11+-57A143?style=flat&logo=neovim&logoColor=white)
 ![Lua](https://img.shields.io/badge/Lua-5.1-2C2D72?style=flat&logo=lua&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=flat)
 ![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat)
@@ -31,7 +31,7 @@ Complete Neovim configuration with essential plugins, LSP, DAP, formatting, lint
 <h2 id="requirements" align="center">Requirements</h2>
 
 <ul>
-  <li>Neovim >= 0.10 (nightly for <code>vim.lsp.config</code> API)</li>
+  <li>Neovim >= 0.11</li>
   <li>git</li>
   <li>ripgrep</li>
   <li>fd</li>

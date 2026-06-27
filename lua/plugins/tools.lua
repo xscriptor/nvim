@@ -35,7 +35,7 @@ return {
     "stevearc/conform.nvim",
     event = "BufWritePre",
     opts = {
-      format_on_save = { timeout_ms = 2000, lsp_fallback = true },
+      format_on_save = { timeout_ms = 500, lsp_fallback = true },
       formatters_by_ft = {
         lua = { "stylua" },
         javascript = { "prettier" },
@@ -55,7 +55,6 @@ return {
   },
   {
     "mfussenegger/nvim-lint",
-    event = { "BufReadPost", "BufWritePost" },
     config = function()
       local lint = require("lint")
       lint.linters_by_ft = {
@@ -69,6 +68,7 @@ return {
       }
 
       vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
+        group = vim.api.nvim_create_augroup("nvim-lint", { clear = true }),
         callback = function()
           lint.try_lint()
         end,
@@ -88,56 +88,6 @@ return {
     version = "*",
     cmd = "ToggleTerm",
     opts = { size = 12, shade_terminals = true },
-  },
-  {
-    "mfussenegger/nvim-dap",
-    event = "VeryLazy",
-    config = function()
-      local dap = require("dap")
-      vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "DAP toggle breakpoint" })
-      vim.keymap.set("n", "<leader>dC", dap.continue, { desc = "DAP continue" })
-      vim.keymap.set("n", "<leader>dx", dap.terminate, { desc = "DAP terminate" })
-      vim.keymap.set("n", "<leader>dr", dap.step_over, { desc = "DAP step over" })
-      vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "DAP step into" })
-      vim.keymap.set("n", "<leader>dO", dap.step_out, { desc = "DAP step out" })
-    end,
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-    event = "VeryLazy",
-    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-    opts = {},
-    config = function(_, opts)
-      local dap = require("dap")
-      local dapui = require("dapui")
-      dapui.setup(opts)
-
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
-    end,
-  },
-  {
-    "mfussenegger/nvim-dap-python",
-    event = "VeryLazy",
-    dependencies = { "mfussenegger/nvim-dap" },
-    config = function()
-      require("dap-python").setup("python")
-    end,
-  },
-  {
-    "mxsdev/nvim-dap-vscode-js",
-    event = "VeryLazy",
-    dependencies = { "mfussenegger/nvim-dap" },
-    opts = {
-      adapters = { "pwa-node", "pwa-chrome" },
-    },
   },
   {
     "ThePrimeagen/harpoon",

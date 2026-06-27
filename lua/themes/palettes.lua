@@ -1,4 +1,4 @@
-return {
+local M = {
   x = {
     color0 = "#0a0a0a",
     color1 = "#fc618d",
@@ -260,3 +260,12 @@ return {
     foreground = "#f7f1ff",
   },
 }
+
+function M.strip_alpha(hex)
+  if #hex == 9 then
+    return hex:sub(1, 7)
+  end
+  return hex
+end
+
+return M

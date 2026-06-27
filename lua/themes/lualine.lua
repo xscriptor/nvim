@@ -1,12 +1,5 @@
 local palettes = require("themes.palettes")
 
-local function strip_alpha(hex)
-  if #hex == 9 then
-    return hex:sub(1, 7)
-  end
-  return hex
-end
-
 local M = {}
 
 function M.theme(name)
@@ -17,14 +10,14 @@ function M.theme(name)
   end
 
   local c = {
-    bg = strip_alpha(p.background),
-    fg = strip_alpha(p.foreground),
-    bg_alt = strip_alpha(p.color8),
-    comment = strip_alpha(p.color8),
-    red = strip_alpha(p.color1),
-    green = strip_alpha(p.color2),
-    yellow = strip_alpha(p.color3),
-    cyan = strip_alpha(p.color6),
+    bg = palettes.strip_alpha(p.background),
+    fg = palettes.strip_alpha(p.foreground),
+    bg_alt = palettes.strip_alpha(p.color8),
+    comment = palettes.strip_alpha(p.color8),
+    red = palettes.strip_alpha(p.color1),
+    green = palettes.strip_alpha(p.color2),
+    yellow = palettes.strip_alpha(p.color3),
+    cyan = palettes.strip_alpha(p.color6),
   }
 
   return {

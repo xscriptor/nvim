@@ -2,15 +2,8 @@ local palettes = require("themes.palettes")
 
 local M = {}
 
-local function strip_alpha(hex)
-  if #hex == 9 then
-    return hex:sub(1, 7)
-  end
-  return hex
-end
-
 local function hex_to_rgb(hex)
-  hex = strip_alpha(hex):gsub("#", "")
+  hex = palettes.strip_alpha(hex):gsub("#", "")
   return tonumber(hex:sub(1, 2), 16), tonumber(hex:sub(3, 4), 16), tonumber(hex:sub(5, 6), 16)
 end
 
@@ -41,24 +34,24 @@ function M.apply(name)
   vim.g.colors_name = name
 
   local c = {
-    bg = strip_alpha(p.background),
-    fg = strip_alpha(p.foreground),
-    bg_alt = strip_alpha(p.color8),
-    fg_alt = strip_alpha(p.color15),
-    comment = strip_alpha(p.color8),
-    red = strip_alpha(p.color1),
-    green = strip_alpha(p.color2),
-    yellow = strip_alpha(p.color3),
-    orange = strip_alpha(p.color4),
-    purple = strip_alpha(p.color5),
-    blue = strip_alpha(p.color6),
-    cyan = strip_alpha(p.color6),
-    bright_red = strip_alpha(p.color9),
-    bright_green = strip_alpha(p.color10),
-    bright_yellow = strip_alpha(p.color11),
-    bright_orange = strip_alpha(p.color12),
-    bright_purple = strip_alpha(p.color13),
-    bright_cyan = strip_alpha(p.color14),
+    bg = palettes.strip_alpha(p.background),
+    fg = palettes.strip_alpha(p.foreground),
+    bg_alt = palettes.strip_alpha(p.color8),
+    fg_alt = palettes.strip_alpha(p.color15),
+    comment = palettes.strip_alpha(p.color8),
+    red = palettes.strip_alpha(p.color1),
+    green = palettes.strip_alpha(p.color2),
+    yellow = palettes.strip_alpha(p.color3),
+    orange = palettes.strip_alpha(p.color4),
+    purple = palettes.strip_alpha(p.color5),
+    blue = palettes.strip_alpha(p.color6),
+    cyan = palettes.strip_alpha(p.color6),
+    bright_red = palettes.strip_alpha(p.color9),
+    bright_green = palettes.strip_alpha(p.color10),
+    bright_yellow = palettes.strip_alpha(p.color11),
+    bright_orange = palettes.strip_alpha(p.color12),
+    bright_purple = palettes.strip_alpha(p.color13),
+    bright_cyan = palettes.strip_alpha(p.color14),
   }
 
   set_hl("Normal", { fg = c.fg, bg = c.bg })
@@ -253,12 +246,10 @@ M.names = vim.tbl_keys(palettes)
 
 vim.api.nvim_create_user_command("Theme", function(opts)
   M.apply(opts.args)
-  pcall(function()
-    local lualine_ok, lualine = pcall(require, "lualine")
-    if lualine_ok then
-      lualine.setup({ options = { theme = require("themes.lualine").theme(opts.args) } })
-    end
-  end)
+  local lualine_ok, lualine = pcall(require, "lualine")
+  if lualine_ok then
+    lualine.setup({ options = { theme = require("themes.lualine").theme(opts.args) } })
+  end
 end, {
   nargs = 1,
   complete = function()

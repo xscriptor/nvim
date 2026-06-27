@@ -1,5 +1,12 @@
 local opt = vim.opt
 
+if vim.tbl_flatten then
+  local iter_flatten = function(t)
+    return vim.iter(t):flatten(math.huge):totable()
+  end
+  vim.tbl_flatten = iter_flatten
+end
+
 opt.number = true
 opt.relativenumber = true
 opt.tabstop = 4

@@ -38,7 +38,7 @@ function M.apply(name)
     fg = palettes.strip_alpha(p.foreground),
     bg_alt = palettes.strip_alpha(p.color8),
     fg_alt = palettes.strip_alpha(p.color15),
-    comment = palettes.strip_alpha(p.color8),
+    comment = palettes.strip_alpha(p.color7),
     red = palettes.strip_alpha(p.color1),
     green = palettes.strip_alpha(p.color2),
     yellow = palettes.strip_alpha(p.color3),
@@ -69,7 +69,9 @@ function M.apply(name)
   set_hl("PmenuSbar", { bg = c.bg_alt })
   set_hl("PmenuThumb", { bg = c.comment })
 
-  set_hl("Visual", { bg = c.bg_alt })
+ -- set_hl("Visual", { bg = c.bg_alt })
+-- Changed visual selection color to bright cyan for more visibility
+  set_hl("Visual", { bg = c.bright_cyan, fg = c.bg })
   set_hl("Search", { fg = c.bg, bg = c.bright_yellow })
   set_hl("IncSearch", { fg = c.bg, bg = c.bright_orange })
   set_hl("MatchParen", { fg = c.bright_cyan, bold = true })

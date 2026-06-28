@@ -27,3 +27,15 @@ map("n", "<C-l>", "<C-w>l", { desc = "Window right" })
 
 map({ "n", "x" }, "<leader>y", '"+y', { desc = "Yank to clipboard" })
 map("n", "<leader>Y", '"+Y', { desc = "Yank line to clipboard" })
+
+--Copy and Cut
+map("n", "<leader>x", '"+dd', { desc = "Cut line to clipboard" })
+
+--Prevent comments from automatically continuing on a new line when pressing 'o' or 'O'
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    vim.opt.formatoptions:remove({ "c", "r", "o" })
+  end,
+})
+
+--comment

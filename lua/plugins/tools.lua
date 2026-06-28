@@ -119,19 +119,39 @@ return {
   {
     "folke/persistence.nvim",
     event = "BufReadPre",
-    opts = {},
+    opts = {
+      need = 0, -- Set to 0 to always save
+
+    },
     config = function(_, opts)
-      require("persistence").setup(opts)
-      vim.keymap.set("n", "<leader>qs", function()
+       require("persistence").setup(opts)
+
+       -- added start session tracking
+      vim.keymap.set("n", "<leader>wa", function()
+        local persistence = require("persistence")
+        if persistence.active() then
+          print("Session tracking is already running!")
+        else
+          persistence.start()
+          print("Session tracking started")
+        end
+      end, { desc = "Start session"})
+
+      vim.keymap.set("n", "<leader>ws", function() -- changed "qs" to "ws"
         require("persistence").save()
+        print("Session saved")
       end, { desc = "Save session" })
-      vim.keymap.set("n", "<leader>ql", function()
+
+      vim.keymap.set("n", "<leader>wl", function() -- changed "ql" to "wl"
         require("persistence").load()
       end, { desc = "Load last session" })
-      vim.keymap.set("n", "<leader>qd", function()
+
+      vim.keymap.set("n", "<leader>wd", function() -- changed "qd" to "wd"
         require("persistence").stop()
+
+        print("Session tracking stopped.")
       end, { desc = "Stop session" })
-    end,
+   end,
   },
   {
     "OXY2DEV/markview.nvim",

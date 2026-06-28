@@ -71,7 +71,7 @@ return {
         group = vim.api.nvim_create_augroup("nvim-lint", { clear = true }),
         callback = function()
           lint.try_lint()
-        end,
+    end,
       })
     end,
   },
@@ -121,12 +121,11 @@ return {
     event = "BufReadPre",
     opts = {
       need = 0, -- Set to 0 to always save
-
     },
     config = function(_, opts)
-       require("persistence").setup(opts)
+      require("persistence").setup(opts)
 
-       -- added start session tracking
+      -- added start session tracking
       vim.keymap.set("n", "<leader>wa", function()
         local persistence = require("persistence")
         if persistence.active() then
@@ -135,7 +134,7 @@ return {
           persistence.start()
           print("Session tracking started")
         end
-      end, { desc = "Start session"})
+      end, { desc = "Start session" })
 
       vim.keymap.set("n", "<leader>ws", function() -- changed "qs" to "ws"
         require("persistence").save()
@@ -151,7 +150,7 @@ return {
 
         print("Session tracking stopped.")
       end, { desc = "Stop session" })
-   end,
+    end,
   },
   {
     "OXY2DEV/markview.nvim",

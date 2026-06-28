@@ -69,8 +69,8 @@ function M.apply(name)
   set_hl("PmenuSbar", { bg = c.bg_alt })
   set_hl("PmenuThumb", { bg = c.comment })
 
- -- set_hl("Visual", { bg = c.bg_alt })
--- Changed visual selection color to bright cyan for more visibility
+  -- set_hl("Visual", { bg = c.bg_alt })
+  -- Changed visual selection color to bright cyan for more visibility
   set_hl("Visual", { bg = c.bright_cyan, fg = c.bg })
   set_hl("Search", { fg = c.bg, bg = c.bright_yellow })
   set_hl("IncSearch", { fg = c.bg, bg = c.bright_orange })

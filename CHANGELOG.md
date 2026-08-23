@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-23
+
+- Migrate all customizations to xscriptor-colors
+
 ## 2026-06-26
 
 ### Bugfixes

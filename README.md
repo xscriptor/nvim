@@ -1,6 +1,6 @@
-<h1 align="center"> NVIM </h1>
+<h1 align="center"> Neo<em>Vim</em> <img src="https://raw.githubusercontent.com/xscriptor-colors/web/main/public/svg/icons/nvim.svg" width="30" alt="Windows Colors logo" />
+</h1>
 
-<p align="center"><a href="https://xscriptor.io/en/?mode=so"><img src="https://raw.githubusercontent.com/xscriptor/xassets/main/xrepos/nvim/logo.svg" height="50" alt="X"/></a></p>
 <div align="center">
 
 ![Neovim](https://img.shields.io/badge/Neovim-0.11+-57A143?style=flat&logo=neovim&logoColor=white)
@@ -15,6 +15,7 @@ Complete Neovim configuration with essential plugins, LSP, DAP, formatting, lint
 <h2><em>Index</em></h2>
 
 <ul>
+  <li><a href="#previews">Previews</a></li>
   <li><a href="#requirements">Requirements</a></li>
   <li><a href="#installation">Installation</a></li>
   <li><a href="#themes">Themes</a></li>
@@ -26,6 +27,24 @@ Complete Neovim configuration with essential plugins, LSP, DAP, formatting, lint
   <li><a href="#related-repos">Related Repos</a></li>
   <li><a href="#x">X</a></li>
 </ul>
+
+<h2 id="previews" align="center">Previews</h2>
+
+<div align="center">
+<img src="https://xscriptor-colors.github.io/web/images/nvim/preview1.webp" width="900" alt="Demo" >
+
+<hr />
+<img src="https://xscriptor-colors.github.io/web/images/nvim/preview2.webp" width="900" alt="Demo" >
+<hr />
+</div>
+
+<details>
+<summary><b>More... </b></summary>
+<p align="center">
+<img src="https://xscriptor-colors.github.io/web/images/nvim/preview3.webp" alt="Demo" width="49%" />
+<img src="https://xscriptor-colors.github.io/web/images/nvim/preview4.webp" alt="Demo" width="49%" />
+</p>
+</details>
 
 
 <h2 id="requirements" align="center">Requirements</h2>
